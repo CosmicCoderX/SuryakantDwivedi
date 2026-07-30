@@ -2,6 +2,7 @@ import React from 'react';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Stats from './components/Stats';
 
 export default function App() {
   return (
@@ -9,10 +10,11 @@ export default function App() {
       {/* 60 FPS Background Image Scroll Canvas Engine */}
       <BackgroundCanvas />
 
-      {/* Fixed Full Screen Hero & Navbar UI Overlay */}
+      {/* Full Screen Scrollable UI Overlay Layer */}
       <div id="ui-overlay">
         <Navbar />
         <Hero />
+        <Stats />
       </div>
     </div>
   );

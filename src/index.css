@@ -86,18 +86,17 @@ body::-webkit-scrollbar {
   will-change: transform;
 }
 
-/* Fixed React UI Overlay Container */
+/* Full Screen Hero & Stats UI Overlay Layer */
 #ui-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   z-index: 10;
-  pointer-events: none; /* Allows canvas scroll underneath */
+  pointer-events: none; /* Allows background canvas scroll underneath */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 /* Interactive elements inside UI overlay re-enable pointer-events */
