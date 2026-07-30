@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Philosophy from './components/Philosophy';
 import Journey from './components/Journey';
+import Testimonials from './components/Testimonials';
 import ProjectsPage from './pages/ProjectsPage';
 
 function HomePage() {
@@ -25,6 +26,7 @@ function HomePage() {
         <Projects />
         <Philosophy />
         <Journey />
+        <Testimonials />
       </div>
     </div>
   );
