@@ -54,9 +54,9 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
-/* Scroll Container for 240 Frame Animation across all sections */
+/* Scroll Container for 240 Frame Animation across all main page sections */
 #scroll-container {
-  height: 1200vh;
+  height: 1600vh;
   width: 100%;
   position: relative;
   pointer-events: auto;
