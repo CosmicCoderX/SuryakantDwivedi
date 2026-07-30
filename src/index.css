@@ -54,12 +54,32 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
-/* Scroll Container for 240 Frame Animation */
+/* Scroll Container for 240 Frame Animation across all sections */
 #scroll-container {
-  height: 800vh;
+  height: 1200vh;
   width: 100%;
   position: relative;
   pointer-events: auto;
+}
+
+/* Infinite Marquee Keyframe */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* Fixed Canvas Layer */

@@ -3,6 +3,7 @@ import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
+import Skills from './components/Skills';
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Navbar />
         <Hero />
         <Stats />
+        <Skills />
       </div>
     </div>
   );
