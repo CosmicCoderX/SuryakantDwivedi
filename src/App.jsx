@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 import Skills from './components/Skills';
+import TechMarquee from './components/TechMarquee';
 import Projects from './components/Projects';
 import Philosophy from './components/Philosophy';
 import Journey from './components/Journey';
@@ -23,6 +24,7 @@ function HomePage() {
         <Hero />
         <Stats />
         <Skills />
+        <TechMarquee />
         <Projects />
         <Philosophy />
         <Journey />

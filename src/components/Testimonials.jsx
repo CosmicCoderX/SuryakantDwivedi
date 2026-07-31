@@ -32,7 +32,6 @@ const TESTIMONIALS = [
       'Working with Suryakant during hackathons was a great experience. He consistently approached challenges with a problem-solving mindset, contributed effectively to frontend development, and remained calm even under tight deadlines.',
     linkedin: 'https://www.linkedin.com/in/eklavya-verma',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
-    initials: 'EV',
   },
   {
     id: 'prashant',
@@ -43,7 +42,6 @@ const TESTIMONIALS = [
       'Suryakant is dependable, collaborative, and always willing to help the team. His ability to quickly adapt to new technologies made our hackathon projects more polished and efficient.',
     linkedin: 'https://www.linkedin.com/in/prashant-gupta',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
-    initials: 'PG',
   },
   {
     id: 'sohail',
@@ -54,7 +52,6 @@ const TESTIMONIALS = [
       'Suryakant demonstrates strong curiosity and dedication toward learning modern technologies. His willingness to continuously improve and apply concepts in practical projects makes him stand out.',
     linkedin: 'https://www.linkedin.com/in/sohail-iqbal',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
-    initials: 'SI',
   },
   {
     id: 'shikhar',
@@ -65,7 +62,6 @@ const TESTIMONIALS = [
       "One of Suryakant's strengths is his eagerness to learn and build. He takes feedback positively, implements suggestions quickly, and consistently delivers high-quality work.",
     linkedin: 'https://www.linkedin.com/in/shikhar-pandey',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300&auto=format&fit=crop',
-    initials: 'SP',
   },
   {
     id: 'satyam',
@@ -76,7 +72,6 @@ const TESTIMONIALS = [
       "Practicing DSA together has shown Suryakant's persistence and analytical thinking. He enjoys tackling challenging problems and is always motivated to improve.",
     linkedin: 'https://www.linkedin.com/in/satyam-jaiswal',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop',
-    initials: 'SJ',
   },
 ];
 
@@ -92,7 +87,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 35, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -102,7 +97,7 @@ const cardVariants = {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
+    <section id="testimonials" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] rounded-3xl -z-10" />
 
@@ -119,16 +114,16 @@ export default function Testimonials() {
           <span>💬 TESTIMONIALS</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading (52–60px scale) */}
         <h2
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.1]"
           style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
         >
           What Collaborators & Mentors Say
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-white/65 font-normal leading-relaxed">
+        {/* Subtitle (18–20px scale) */}
+        <p className="text-base sm:text-lg text-white/65 font-normal leading-relaxed">
           Feedback from hackathon teammates, academic mentors, and problem-solving partners.
         </p>
       </motion.div>
@@ -139,25 +134,23 @@ export default function Testimonials() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10"
       >
         {TESTIMONIALS.map((item, idx) => {
-          // Row 1: First 3 cards take 2 of 6 cols (1/3 width each)
-          // Row 2: Last 2 cards take 3 of 6 cols (1/2 width each, centered)
           const spanClass = idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
 
           return (
             <motion.div
               key={item.id}
               variants={cardVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
               className={`interactive group relative rounded-[28px] p-8 flex flex-col justify-between transition-all duration-300 ${spanClass}`}
               style={{
-                backgroundColor: 'rgba(18, 18, 18, 0.55)',
+                backgroundColor: 'rgba(18, 18, 20, 0.55)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
               }}
             >
               <div>
@@ -174,21 +167,21 @@ export default function Testimonials() {
                 </div>
 
                 {/* Review Text */}
-                <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal mb-8 italic">
+                <p className="text-base text-white/80 leading-relaxed font-normal mb-8 italic">
                   "{item.review}"
                 </p>
               </div>
 
-              {/* Bottom Row: Profile Avatar, Details & LinkedIn Link */}
+              {/* Bottom Row: Profile Avatar (enlarges on hover), Details & LinkedIn Link */}
               <div className="flex items-center justify-between pt-4 border-t border-white/10 mt-auto">
                 <a
                   href={item.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 group/author"
+                  className="flex items-center space-x-3.5 group/author"
                 >
-                  {/* Avatar Picture / Initials */}
-                  <div className="relative w-11 h-11 rounded-full overflow-hidden border border-white/20 group-hover/author:border-emerald-400 transition-colors shrink-0">
+                  {/* Avatar Picture with Hover Zoom */}
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/20 group-hover/author:border-emerald-400 transition-colors shrink-0">
                     <img
                       src={item.avatar}
                       alt={item.name}
@@ -197,7 +190,7 @@ export default function Testimonials() {
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover/author:text-emerald-300 transition-colors">
+                    <h3 className="text-sm sm:text-base font-bold text-white group-hover/author:text-emerald-300 transition-colors">
                       {item.name}
                     </h3>
                     <p className="text-xs text-white/50 font-medium">

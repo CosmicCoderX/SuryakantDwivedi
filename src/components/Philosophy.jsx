@@ -44,7 +44,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 35, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -54,8 +54,8 @@ const cardVariants = {
 
 export default function Philosophy() {
   return (
-    <section id="philosophy" className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
-      {/* Subtle dark backdrop overlay for readability */}
+    <section id="philosophy" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+      {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px] rounded-3xl -z-10" />
 
       {/* SECTION HEADER */}
@@ -71,21 +71,21 @@ export default function Philosophy() {
           <span>💡 WORK PHILOSOPHY</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading (52–60px scale) */}
         <h2
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.1]"
           style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
         >
           How I Work
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-white/65 font-normal leading-relaxed">
+        {/* Subtitle (18–20px scale) */}
+        <p className="text-base sm:text-lg text-white/65 font-normal leading-relaxed">
           I believe great software is built through quality engineering, clear communication, and consistent delivery.
         </p>
       </motion.div>
 
-      {/* 3 EQUAL HEIGHT CARDS GRID (3 Columns Desktop, 2 Tablet, 1 Mobile) */}
+      {/* 3 EQUAL HEIGHT CARDS GRID IN SINGLE HORIZONTAL ROW ON DESKTOP */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -93,57 +93,53 @@ export default function Philosophy() {
         viewport={{ once: true, margin: '-50px' }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch"
       >
-        {PHILOSOPHY_CARDS.map((card) => {
-          const Icon = card.icon;
+        {PHILOSOPHY_CARDS.map((card) => (
+          <motion.div
+            key={card.id}
+            variants={cardVariants}
+            whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
+            className="interactive group relative rounded-[28px] p-8 flex flex-col justify-between min-h-[270px] transition-all duration-300 hover:border-white/25"
+            style={{
+              backgroundColor: 'rgba(18, 18, 20, 0.55)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
+            }}
+          >
+            {/* Soft Ambient Inner Glow on Hover */}
+            <div className={`absolute inset-0 bg-gradient-to-b ${card.accentGlow} rounded-[28px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
 
-          return (
-            <motion.div
-              key={card.id}
-              variants={cardVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
-              className="interactive group relative rounded-[24px] p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/25 hover:shadow-2xl"
-              style={{
-                backgroundColor: 'rgba(18, 18, 18, 0.65)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1)',
-              }}
-            >
-              {/* Soft Ambient Inner Glow on Hover */}
-              <div className={`absolute inset-0 bg-gradient-to-b ${card.accentGlow} rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-
-              <div>
-                {/* Icon Container */}
-                <div className="relative mb-6 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl group-hover:scale-110 group-hover:border-white/25 group-hover:bg-white/10 transition-all duration-300 shadow-inner">
-                  <span>{card.emojiIcon}</span>
-                </div>
-
-                {/* Card Title */}
-                <h3 className="text-xl font-bold text-white tracking-tight mb-3 group-hover:text-white transition-colors">
-                  {card.title}
-                </h3>
-
-                {/* Card Description (shifts slightly on hover) */}
-                <p className="text-sm text-white/65 leading-relaxed font-normal mb-8 transition-transform duration-300 group-hover:-translate-y-1">
-                  {card.description}
-                </p>
+            <div>
+              {/* Icon Container */}
+              <div className="relative mb-6 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-2xl group-hover:scale-105 group-hover:border-white/25 transition-all duration-300 shadow-inner">
+                <span>{card.emojiIcon}</span>
               </div>
 
-              {/* Bottom Tags */}
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10">
-                {card.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:scale-105 group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-200"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          );
-        })}
+              {/* Card Title */}
+              <h3 className="text-xl font-bold text-white tracking-tight mb-3">
+                {card.title}
+              </h3>
+
+              {/* Card Description */}
+              <p className="text-base text-white/65 leading-relaxed font-normal mb-8">
+                {card.description}
+              </p>
+            </div>
+
+            {/* Bottom Tags */}
+            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 mt-auto">
+              {card.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:bg-white/10 transition-all duration-200"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
     </section>
   );

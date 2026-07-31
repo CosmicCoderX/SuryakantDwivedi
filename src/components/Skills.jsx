@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Terminal, Database, Sparkles, GitBranch, Compass } from 'lucide-react';
+import { Layout, Terminal, Database, Sparkles, GitBranch } from 'lucide-react';
 
 const SKILLS_CARDS = [
   {
@@ -40,16 +40,6 @@ const SKILLS_CARDS = [
   },
 ];
 
-const EXPLORING_PILLS = [
-  'Next.js',
-  'Express.js',
-  'MongoDB',
-  'Docker',
-  'AWS',
-  'System Design',
-  'Machine Learning',
-];
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -62,7 +52,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { y: 40, opacity: 0 },
+  hidden: { y: 35, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -72,9 +62,9 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
-      {/* Dark overlay backdrop to enhance readability */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] rounded-3xl -z-10" />
+    <section id="skills" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+      {/* Dark overlay backdrop for readability */}
+      <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px] rounded-3xl -z-10" />
 
       {/* SECTION HEADER */}
       <motion.div
@@ -89,74 +79,72 @@ export default function Skills() {
           <span>⚡ SKILLS & EXPERTISE</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading (52–60px scale) */}
         <h2
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.1]"
           style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
         >
           Technologies I Use to Build Modern Digital Products
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-white/65 font-normal leading-relaxed">
+        {/* Subtitle (18–20px scale) */}
+        <p className="text-base sm:text-lg text-white/65 font-normal leading-relaxed">
           From responsive frontend applications to AI-powered solutions and problem solving, I enjoy learning and building with technologies that create real impact.
         </p>
       </motion.div>
 
-      {/* 5-CARD GRID LAYOUT */}
+      {/* 5-CARD GRID LAYOUT (Row 1: 3 cards, Row 2: 2 centered cards) */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-20"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-10"
       >
         {SKILLS_CARDS.map((card, idx) => {
           const Icon = card.icon;
-          // Row 1: First 3 cards take 2 of 6 cols on lg screen (1/3 each)
-          // Row 2: Last 2 cards take 3 of 6 cols on lg screen (1/2 each, perfectly centered)
           const spanClass = idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
 
           return (
             <motion.div
               key={card.id}
               variants={cardVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
               className={`interactive group relative rounded-[28px] p-8 flex flex-col justify-between transition-all duration-300 ${spanClass}`}
               style={{
-                backgroundColor: 'rgba(20, 20, 20, 0.55)',
+                backgroundColor: 'rgba(18, 18, 20, 0.55)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
               }}
             >
               {/* Subtle Icon Glow Accent on Hover */}
-              <div className="absolute top-8 left-8 w-12 h-12 bg-white/10 rounded-2xl blur-xl group-hover:bg-white/25 transition-all duration-300 opacity-0 group-hover:opacity-100 pointer-events-none" />
+              <div className="absolute top-8 left-8 w-12 h-12 bg-white/10 rounded-2xl blur-xl group-hover:bg-white/20 transition-all duration-300 opacity-0 group-hover:opacity-100 pointer-events-none" />
 
               <div>
                 {/* Icon Container */}
-                <div className="relative mb-6 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:border-white/30 group-hover:scale-105 transition-all duration-300 shadow-inner">
-                  <Icon size={26} className="group-hover:rotate-6 transition-transform duration-300" />
+                <div className="relative mb-6 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:border-white/30 transition-all duration-300 shadow-inner">
+                  <Icon size={25} />
                 </div>
 
                 {/* Card Title */}
-                <h3 className="text-xl font-bold text-white tracking-tight mb-3 group-hover:text-white transition-colors">
+                <h3 className="text-xl font-bold text-white tracking-tight mb-3">
                   {card.title}
                 </h3>
 
                 {/* Card Description */}
-                <p className="text-sm text-white/65 leading-relaxed font-normal mb-8">
+                <p className="text-sm sm:text-base text-white/65 leading-relaxed font-normal mb-8">
                   {card.description}
                 </p>
               </div>
 
-              {/* Tech Pills */}
-              <div className="flex flex-wrap gap-2 pt-2 border-t border-white/10">
+              {/* Tech Stack Pills */}
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-white/10 mt-auto">
                 {card.pills.map((pill) => (
                   <span
                     key={pill}
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:scale-105 group-hover:bg-white/10 transition-all duration-200"
+                    className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:bg-white/10 transition-all duration-200"
                   >
                     {pill}
                   </span>
@@ -165,39 +153,6 @@ export default function Skills() {
             </motion.div>
           );
         })}
-      </motion.div>
-
-      {/* BOTTOM SECTION: Centered Infinite Marquee "Currently Exploring" */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="interactive flex flex-col items-center justify-center space-y-6 pt-6"
-      >
-        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/50">
-          <Compass size={14} className="animate-spin" style={{ animationDuration: '8s' }} />
-          <span>Currently Exploring</span>
-        </div>
-
-        {/* Marquee Wrapper */}
-        <div className="w-full max-w-4xl overflow-hidden relative rounded-full bg-white/[0.03] border border-white/10 py-3.5 backdrop-blur-md">
-          {/* Gradient fade masks at sides */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-black/80 to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-black/80 to-transparent z-10 pointer-events-none" />
-
-          <div className="animate-marquee gap-4 px-4">
-            {/* Duplicate pill sequence to make infinite seamless loop */}
-            {[...EXPLORING_PILLS, ...EXPLORING_PILLS, ...EXPLORING_PILLS].map((item, i) => (
-              <span
-                key={`${item}-${i}`}
-                className="px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-white/10 text-white/90 border border-white/15 whitespace-nowrap shadow-sm hover:scale-105 hover:bg-white/20 transition-all cursor-pointer"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
       </motion.div>
     </section>
   );

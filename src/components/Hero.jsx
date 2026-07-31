@@ -14,7 +14,7 @@ const containerVariants = {
 };
 
 const fadeInUp = {
-  hidden: { y: 35, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -33,130 +33,124 @@ const badgeSlide = {
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-full flex flex-col justify-between pt-24 pb-8 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
-      {/* Top Split Layout: LEFT 40% & RIGHT 30% */}
+    <section className="relative w-full min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+      {/* Top Split Layout: LEFT Column & RIGHT Intro Card */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mt-4 sm:mt-8 z-10"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mt-6 z-10"
       >
-        {/* LEFT COLUMN (~40%) */}
-        <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+        {/* LEFT COLUMN: Shifted further left */}
+        <div className="lg:col-span-6 flex flex-col items-start space-y-7">
           {/* Small rounded status badge */}
           <motion.div
             variants={badgeSlide}
-            className="interactive inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 border border-white/15 backdrop-blur-md text-emerald-300 shadow-lg"
+            className="interactive inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 border border-white/15 backdrop-blur-md text-emerald-300 shadow-md"
           >
             <span className="pulse-green"></span>
             <span>Available for Internships</span>
           </motion.div>
 
-          {/* Large Heading */}
+          {/* Reduced Heading (15–20% smaller) */}
           <motion.div variants={fadeInUp} className="space-y-1">
             <h1
-              className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none"
+              className="text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-tight text-white leading-[1.05]"
               style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
             >
               Suryakant
             </h1>
             <h1
-              className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/50"
+              className="text-4xl sm:text-6xl lg:text-[68px] font-extrabold tracking-tight leading-[1.05] bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/50"
               style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
             >
               Dwivedi
             </h1>
           </motion.div>
 
-          {/* Roles Subtitle */}
+          {/* Single Elegant Line for Roles */}
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-semibold text-white/90"
+            className="text-sm sm:text-base font-semibold text-white/80 tracking-wide"
           >
-            <span className="px-3 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/10">
-              Full Stack Developer
-            </span>
-            <span className="text-white/40">•</span>
-            <span className="px-3 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/10">
-              AI Enthusiast
-            </span>
-            <span className="text-white/40">•</span>
-            <span className="px-3 py-1 rounded-md bg-white/10 backdrop-blur-sm border border-white/10">
-              Competitive Programmer
-            </span>
+            <span>Full Stack Developer</span>
+            <span className="mx-2.5 text-white/40">•</span>
+            <span>AI Enthusiast</span>
+            <span className="mx-2.5 text-white/40">•</span>
+            <span>Competitive Programmer</span>
           </motion.div>
 
-          {/* Paragraph */}
+          {/* Description Paragraph */}
           <motion.p
             variants={fadeInUp}
-            className="text-base sm:text-lg text-white/70 max-w-xl font-normal leading-relaxed"
+            className="text-base sm:text-lg text-white/70 max-w-lg font-normal leading-relaxed"
           >
             Building scalable web applications, AI-powered solutions, and interactive digital experiences with modern technologies.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Exactly Two Action Buttons */}
           <motion.div variants={fadeInUp} className="interactive flex flex-wrap items-center gap-4 pt-2">
             <motion.a
               href="#projects"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="btn-glow-primary px-7 py-3.5 text-sm sm:text-base inline-flex items-center gap-2"
+              className="btn-glow-primary px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2"
             >
               <span>View Projects</span>
-              <ArrowRight size={18} />
+              <ArrowRight size={17} />
             </motion.a>
 
             <motion.a
               href="#resume"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="btn-glow-secondary px-7 py-3.5 text-sm sm:text-base inline-flex items-center gap-2"
+              className="btn-glow-secondary px-7 py-3.5 text-sm font-semibold inline-flex items-center gap-2"
             >
-              <Download size={18} />
+              <Download size={17} />
               <span>Download Resume</span>
             </motion.a>
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN (~30%) */}
-        <div className="lg:col-span-5 flex flex-col justify-between items-start lg:items-end mt-4 lg:mt-0">
+        {/* RIGHT COLUMN: Positioned lower and further right to avoid covering the face */}
+        <div className="lg:col-span-6 flex flex-col justify-end items-start lg:items-end lg:mt-24">
           <motion.div
             variants={fadeInUp}
-            className="interactive glass-panel p-6 sm:p-7 rounded-2xl max-w-md border border-white/15 space-y-4 shadow-2xl relative overflow-hidden group hover:border-white/30 transition-all duration-300"
+            className="interactive glass-panel p-6 sm:p-7 max-w-[320px] space-y-4 shadow-2xl relative overflow-hidden group hover:border-white/25 transition-all duration-300"
           >
-            {/* Subtle glow accent inside card */}
-            <div className="absolute -top-12 -right-12 w-28 h-28 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+            {/* Subtle inner glow */}
+            <div className="absolute -top-10 -right-10 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all" />
 
-            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            <h2 className="text-xl font-bold text-white tracking-tight">
               Hi, I'm Suryakant.
             </h2>
-            <p className="text-sm sm:text-base text-white/75 leading-relaxed">
+            <p className="text-sm text-white/75 leading-relaxed font-normal">
               I'm a Computer Science student passionate about building modern web applications, AI-powered products, and solving challenging algorithmic problems.
             </p>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
-                className="btn-glow-accent px-5 py-2.5 text-sm inline-flex items-center gap-2"
+                className="btn-glow-accent px-5 py-2.5 text-xs font-semibold inline-flex items-center gap-2"
               >
                 <span>Let's Connect</span>
-                <Send size={15} />
+                <Send size={14} />
               </motion.a>
             </div>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* BOTTOM CENTER: Giant Transparent Typography "SURYAKANT" */}
+      {/* BOTTOM CENTER: Giant Watermark Typography "SURYAKANT" */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 0.1, y: 0 }}
+        animate={{ opacity: 0.08, y: 0 }}
         transition={{ duration: 1.2, delay: 0.6 }}
         className="w-full text-center overflow-hidden py-2 select-none pointer-events-none z-0"
       >
-        <span className="giant-typography text-[15vw] sm:text-[16vw] lg:text-[17vw] leading-none block tracking-tighter">
+        <span className="giant-typography text-[14vw] sm:text-[15vw] leading-none block tracking-tighter">
           SURYAKANT
         </span>
       </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Award, Code2, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Calendar, CheckCircle2 } from 'lucide-react';
 
 const MILESTONES = [
   {
@@ -58,20 +58,28 @@ const MILESTONES = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
+// Storytelling Motion Variants for Individual Milestone Step
+const cardVariant = (isLeft) => ({
+  hidden: {
+    opacity: 0,
+    scale: 0.95,
+    x: isLeft ? -40 : 40,
+  },
   visible: {
     opacity: 1,
+    scale: 1,
+    x: 0,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1,
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.2, // Delayed reveal after node activates
     },
   },
-};
+});
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
+    <section id="journey" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] rounded-3xl -z-10" />
 
@@ -81,57 +89,59 @@ export default function Journey() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center max-w-[720px] mx-auto mb-16 sm:mb-24 space-y-4"
+        className="text-center max-w-[720px] mx-auto mb-20 sm:mb-24 space-y-4"
       >
         {/* Small Badge */}
         <div className="interactive inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider text-emerald-300 bg-white/5 border border-white/10 backdrop-blur-md shadow-md uppercase">
           <span>🎓 JOURNEY & MILESTONES</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading (52–60px scale) */}
         <h2
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.1]"
           style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
         >
           From Learning to Building Real Products
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-white/65 font-normal leading-relaxed">
+        {/* Subtitle (18–20px scale) */}
+        <p className="text-base sm:text-lg text-white/65 font-normal leading-relaxed">
           Every project, hackathon, and challenge has shaped my journey as a developer. Here's a timeline of the milestones that define my growth.
         </p>
       </motion.div>
 
       {/* VERTICAL TIMELINE CONTAINER */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-60px' }}
-        className="relative w-full max-w-5xl mx-auto"
-      >
-        {/* GLOWING CENTER TIMELINE LINE (Desktop center, Mobile left) */}
-        <div className="absolute left-6 lg:left-1/2 top-4 bottom-4 w-1 -translate-x-1/2 bg-gradient-to-b from-emerald-500/70 via-white/30 to-emerald-500/70 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.5)] z-0" />
+      <div className="relative w-full max-w-5xl mx-auto">
+        {/* GLOWING CENTER TIMELINE LINE */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="origin-top absolute left-6 lg:left-1/2 top-4 bottom-4 w-1 -translate-x-1/2 bg-gradient-to-b from-emerald-500/80 via-white/30 to-emerald-500/80 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.6)] z-0"
+        />
 
-        <div className="space-y-12 sm:space-y-16 relative z-10">
-          {MILESTONES.map((item, index) => {
+        <div className="space-y-16 sm:space-y-20 relative z-10">
+          {MILESTONES.map((item) => {
             const isLeft = item.side === 'left';
 
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
               >
-                {/* GLOWING TIMELINE NODE */}
-                <div className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-neutral-900 border-2 border-emerald-400/80 flex items-center justify-center text-xl shadow-[0_0_20px_rgba(34,197,94,0.6)] z-20 group-hover:scale-110 transition-transform">
+                {/* SCROLL-ACTIVATED NODE GLOW */}
+                <motion.div
+                  initial={{ scale: 0.6, opacity: 0.3 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                  className="absolute left-6 lg:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-neutral-950 border-2 border-emerald-400 flex items-center justify-center text-xl shadow-[0_0_25px_rgba(34,197,94,0.7)] z-20"
+                >
                   <span>{item.emojiIcon}</span>
-                </div>
+                </motion.div>
 
-                {/* CARD POSITIONING (LEFT or RIGHT on desktop, full width on mobile) */}
+                {/* CARD POP OUT WITH SLIDE & SCALE MOTION */}
                 <div
                   className={`pl-16 lg:pl-0 ${
                     isLeft
@@ -140,14 +150,18 @@ export default function Journey() {
                   }`}
                 >
                   <motion.div
-                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                    className="interactive group rounded-[28px] p-7 sm:p-8 transition-all duration-300 text-left"
+                    variants={cardVariant(isLeft)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-80px' }}
+                    whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                    className="interactive group rounded-[28px] p-8 transition-all duration-300 text-left"
                     style={{
-                      backgroundColor: 'rgba(18, 18, 18, 0.55)',
+                      backgroundColor: 'rgba(18, 18, 20, 0.55)',
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                      boxShadow: '0 16px 40px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1)',
+                      boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
                     }}
                   >
                     {/* Date Badge */}
@@ -171,7 +185,7 @@ export default function Journey() {
                       </p>
                     )}
 
-                    {/* Achievements List (if present) */}
+                    {/* Achievements List */}
                     {item.achievements && (
                       <div className="space-y-1.5 mb-4 py-2 px-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
                         {item.achievements.map((ach) => (
@@ -182,14 +196,14 @@ export default function Journey() {
                       </div>
                     )}
 
-                    {/* Description Paragraph */}
+                    {/* Description */}
                     {item.description && (
-                      <p className="text-sm text-white/65 leading-relaxed font-normal mb-4">
+                      <p className="text-base text-white/65 leading-relaxed font-normal mb-4">
                         {item.description}
                       </p>
                     )}
 
-                    {/* Highlights List (if present) */}
+                    {/* Highlights */}
                     {item.highlights && (
                       <div className="space-y-1.5 mb-4">
                         {item.highlights.map((h) => (
@@ -206,7 +220,7 @@ export default function Journey() {
                       {item.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:scale-105 group-hover:bg-white/10 transition-all"
+                          className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:bg-white/10 transition-all"
                         >
                           {tag}
                         </span>
@@ -214,11 +228,11 @@ export default function Journey() {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

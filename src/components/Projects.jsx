@@ -35,7 +35,7 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { y: 50, opacity: 0 },
+  hidden: { y: 40, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
@@ -58,7 +58,7 @@ function getBadgeIcon(badgeType) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto pointer-events-none">
+    <section id="projects" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] rounded-3xl -z-10" />
 
@@ -68,54 +68,53 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="text-center max-w-[700px] mx-auto mb-16 sm:mb-24 space-y-4"
+        className="text-center max-w-[700px] mx-auto mb-20 sm:mb-24 space-y-4"
       >
         {/* Small Label */}
         <div className="interactive inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider text-emerald-300 bg-white/5 border border-white/10 backdrop-blur-md shadow-md uppercase">
           <span>🚀 FEATURED WORK</span>
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading (52–60px scale) */}
         <h2
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight"
+          className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-white leading-[1.1]"
           style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}
         >
           Projects That Turn Ideas Into Products
         </h2>
 
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-white/65 font-normal leading-relaxed">
+        {/* Subtitle (18–20px scale) */}
+        <p className="text-base sm:text-lg text-white/65 font-normal leading-relaxed">
           A selection of projects showcasing my expertise in full-stack development, AI, machine learning, and interactive web experiences.
         </p>
       </motion.div>
 
-      {/* 3 ALTERNATING VERTICAL CARDS (~85% SCREEN WIDTH) */}
+      {/* 3 ALTERNATING VERTICAL CARDS WITH INCREASED SPACING (space-y-24) */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
-        className="flex flex-col space-y-12 sm:space-y-16 w-full max-w-[92%] mx-auto mb-20"
+        className="flex flex-col space-y-20 sm:space-y-24 w-full max-w-[95%] mx-auto mb-20"
       >
         {FEATURED_PROJECTS.map((project, index) => {
-          // Alternating layout: index 0 -> Image Left, index 1 -> Image Right, index 2 -> Image Left
           const isImageLeft = index % 2 === 0;
 
           return (
             <motion.div
               key={project.id}
               variants={cardVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3, ease: 'easeOut' } }}
-              className="interactive group relative w-full rounded-[32px] overflow-hidden transition-all duration-300"
+              whileHover={{ y: -6, transition: { duration: 0.3, ease: 'easeOut' } }}
+              className="interactive group relative w-full rounded-[28px] overflow-hidden transition-all duration-300"
               style={{
-                backgroundColor: 'rgba(15, 15, 15, 0.55)',
+                backgroundColor: 'rgba(18, 18, 20, 0.55)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
-                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.1)',
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5)',
               }}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 items-center min-h-[420px]">
+              <div className="grid grid-cols-1 lg:grid-cols-12 items-center min-h-[440px]">
                 {/* IMAGE CONTAINER */}
                 <div
                   className={`lg:col-span-6 relative h-64 sm:h-80 lg:h-full overflow-hidden ${
@@ -125,11 +124,11 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  {/* Subtle Gradient Overlay on Image */}
+                  {/* Subtle Overlay Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:hidden" />
-                  <div className={`hidden lg:block absolute inset-0 bg-gradient-to-${isImageLeft ? 'r' : 'l'} from-transparent to-[#0f0f0f]/90`} />
+                  <div className={`hidden lg:block absolute inset-0 bg-gradient-to-${isImageLeft ? 'r' : 'l'} from-transparent to-[#121214]/90`} />
                 </div>
 
                 {/* CONTENT CONTAINER */}
@@ -140,31 +139,31 @@ export default function Projects() {
                 >
                   <div className="space-y-4">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-white/90 shadow-sm backdrop-blur-md">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 border border-white/15 text-white/90 backdrop-blur-md">
                       {getBadgeIcon(project.badgeType)}
                       <span>{project.badge}</span>
                     </div>
 
                     {/* Title */}
                     <h3
-                      className="text-2xl sm:text-4xl font-bold tracking-tight text-white group-hover:text-white transition-colors"
+                      className="text-2xl sm:text-4xl font-bold tracking-tight text-white"
                       style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                     >
                       {project.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm sm:text-base text-white/70 leading-relaxed font-normal">
+                    <p className="text-base text-white/70 leading-relaxed font-normal">
                       {project.description}
                     </p>
                   </div>
 
-                  {/* Tech Pills */}
+                  {/* Tech Stack Pills */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.techPills.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:scale-105 group-hover:bg-white/10 transition-all duration-200"
+                        className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/80 group-hover:bg-white/10 transition-all duration-200"
                       >
                         {tech}
                       </span>
@@ -200,7 +199,7 @@ export default function Projects() {
         })}
       </motion.div>
 
-      {/* BOTTOM CTA: Explore All Projects → */}
+      {/* BOTTOM CTA */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +209,7 @@ export default function Projects() {
       >
         <Link
           to="/projects"
-          className="btn-glow-primary px-9 py-4 text-sm sm:text-base font-semibold inline-flex items-center gap-3 rounded-full shadow-2xl hover:scale-105 transition-transform"
+          className="btn-glow-primary px-9 py-4 text-sm sm:text-base font-semibold inline-flex items-center gap-3 rounded-full shadow-2xl hover:scale-[1.03] transition-transform"
         >
           <span>Explore All Projects</span>
           <ArrowRight size={18} />
