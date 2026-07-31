@@ -30,8 +30,8 @@ const TESTIMONIALS = [
     rating: 5,
     review:
       'Working with Suryakant during hackathons was a great experience. He consistently approached challenges with a problem-solving mindset, contributed effectively to frontend development, and remained calm even under tight deadlines.',
-    linkedin: 'https://www.linkedin.com/in/eklavya-verma',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
+    linkedin: 'https://www.linkedin.com/in/eklavyaverma18/',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQEPpumhlCERYQ/profile-displayphoto-crop_800_800/B56ZvFGC11HsAI-/0/1768538255998?e=1787184000&v=beta&t=MLA-b-EQE_nRFfyz3h1w0F3polIjlNKq4p0eVIF67uA',
   },
   {
     id: 'prashant',
@@ -40,28 +40,28 @@ const TESTIMONIALS = [
     rating: 5,
     review:
       'Suryakant is dependable, collaborative, and always willing to help the team. His ability to quickly adapt to new technologies made our hackathon projects more polished and efficient.',
-    linkedin: 'https://www.linkedin.com/in/prashant-gupta',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
+    linkedin: 'https://www.linkedin.com/in/prashant-gupta-0839302b1/',
+    avatar: 'https://avatars.githubusercontent.com/u/182350939?v=4',
   },
   {
-    id: 'sohail',
-    name: 'Sohail Iqbal',
-    role: 'Academic Mentor',
-    rating: 5,
+    id: 'prem',
+    name: 'Dr. Prem Chand Vashist',
+    role: 'HOD of IT',
+    rating: 4,
     review:
-      'Suryakant demonstrates strong curiosity and dedication toward learning modern technologies. His willingness to continuously improve and apply concepts in practical projects makes him stand out.',
-    linkedin: 'https://www.linkedin.com/in/sohail-iqbal',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      'Suryakant possesses a strong aptitude for grasping new technologies and applying them to real-world problems. He consistently showed dedication, improved his technical skills, and delivered polished work during our sessions.',
+    linkedin: 'https://www.linkedin.com/in/drpremchandvashist/',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5603AQH3JQ1SGrA6iw/profile-displayphoto-crop_800_800/B56ZyTxsryI0AI-/0/1772005808404?e=1787184000&v=beta&t=88PUgSc55D0bhqtdn85HBNT92U5hfBMoy0B6ocouQL0',
   },
   {
-    id: 'shikhar',
-    name: 'Shikhar Pandey',
+    id: 'debjit',
+    name: 'Debjit Mohapatra',
     role: 'Technical Mentor',
     rating: 5,
     review:
       "One of Suryakant's strengths is his eagerness to learn and build. He takes feedback positively, implements suggestions quickly, and consistently delivers high-quality work.",
-    linkedin: 'https://www.linkedin.com/in/shikhar-pandey',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=300&auto=format&fit=crop',
+    linkedin: 'https://www.linkedin.com/in/debjit-mohapatra-94875a232/',
+    avatar: 'https://media.licdn.com/dms/image/v2/D4E03AQEJMZ0JOC-43g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718634838844?e=1787184000&v=beta&t=xNSDDu6JS_UzPzb2imKaUtWtAvn60K4V7WRqJ8KCpUc',
   },
   {
     id: 'satyam',
@@ -70,8 +70,8 @@ const TESTIMONIALS = [
     rating: 5,
     review:
       "Practicing DSA together has shown Suryakant's persistence and analytical thinking. He enjoys tackling challenging problems and is always motivated to improve.",
-    linkedin: 'https://www.linkedin.com/in/satyam-jaiswal',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop',
+    linkedin: 'https://www.linkedin.com/in/satyamcodes136/',
+    avatar: 'https://media.licdn.com/dms/image/v2/D5635AQGymoX3XZKLhw/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1709652085927?e=1786100400&v=beta&t=CZKZAsqqvLb-a4EbEd5E8qexHdY9n7w91AsD7GiX66w',
   },
 ];
 
@@ -97,7 +97,7 @@ const cardVariants = {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+    <section id="testimonials" className="relative w-full py-16 sm:py-24 px-6 sm:px-12 lg:px-16 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] rounded-3xl -z-10" />
 

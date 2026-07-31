@@ -62,7 +62,7 @@ const cardVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+    <section id="skills" className="relative w-full py-16 sm:py-24 px-6 sm:px-12 lg:px-16 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark overlay backdrop for readability */}
       <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px] rounded-3xl -z-10" />
 

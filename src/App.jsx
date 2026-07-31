@@ -3,13 +3,14 @@ import { Routes, Route } from 'react-router-dom';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
+import BentoGrid from './components/BentoGrid';
 import Skills from './components/Skills';
-import TechMarquee from './components/TechMarquee';
 import Projects from './components/Projects';
 import Philosophy from './components/Philosophy';
 import Journey from './components/Journey';
 import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import ProjectsPage from './pages/ProjectsPage';
 
 function HomePage() {
@@ -22,13 +23,23 @@ function HomePage() {
       <div id="ui-overlay">
         <Navbar />
         <Hero />
-        <Stats />
+        <BentoGrid />
         <Skills />
-        <TechMarquee />
         <Projects />
         <Philosophy />
         <Journey />
         <Testimonials />
+        
+        {/* Cinematic Ending Wrapper */}
+        <div className="w-full flex flex-col relative z-10 -mt-[120px]">
+          {/* Smooth gradient transition in normal flow */}
+          <div className="w-full h-[160px] bg-gradient-to-b from-transparent to-black pointer-events-none" />
+          
+          <div className="bg-black pointer-events-auto">
+            <Contact />
+            <Footer />
+          </div>
+        </div>
       </div>
     </div>
   );

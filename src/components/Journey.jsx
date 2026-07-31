@@ -79,7 +79,7 @@ const cardVariant = (isLeft) => ({
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative w-full py-16 sm:py-24 px-6 sm:px-10 lg:px-12 max-w-[1280px] mx-auto pointer-events-none">
+    <section id="journey" className="relative w-full py-16 sm:py-24 px-6 sm:px-12 lg:px-16 max-w-[1280px] mx-auto pointer-events-none">
       {/* Dark backdrop overlay for readability */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] rounded-3xl -z-10" />
 

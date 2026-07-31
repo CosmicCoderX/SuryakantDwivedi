@@ -24,7 +24,7 @@ export default function Navbar() {
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="interactive w-full max-w-6xl rounded-full transition-all duration-300 glass-panel"
+        className="interactive w-full max-w-6xl rounded-[32px] transition-all duration-300 glass-panel"
         style={{
           backgroundColor: scrolled ? 'rgba(10, 10, 14, 0.85)' : 'rgba(18, 18, 22, 0.45)',
           backdropFilter: 'blur(16px)',
